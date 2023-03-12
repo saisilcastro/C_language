@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 21:04:33 by lde-cast          #+#    #+#             */
-/*   Updated: 2023/03/12 08:33:54 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/12 09:44:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,28 @@ void	sort(t_game *game)
 				else
 				{
 					int i;
-					int j;
-
-					i = 0;
-					j = y;
-					while(i < 4)
+					if(y == 2)
 					{
-						//printf("*%i %i", 2 - y, i);
-						game->puzzle[j][i] = i + 1;
-						i++;
+						i = 0;
+						while(i < 4)
+						{
+							printf("*%i %i", y, i);
+							game->puzzle[x][i] = i + 1;
+							i++;
+						}
+						printf("\n");
 					}
-					printf("\n");
+					else
+					{
+						i = 3;
+						while(i >= 0)
+						{
+							printf("#%i %i", x, 4 - i);
+							game->puzzle[x][i] = 4 - i;
+							i--;
+						}
+						printf("\n");
+					}
 				}
 			}
 			if (game->border[y][x] == 1)
